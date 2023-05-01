@@ -18,7 +18,6 @@ static t_dict  *create_env(void)
 }
 
 /*Adicionando as keys e values no nó*/
-/*Algo de errado nesta função*/
 static t_dict   *add_env(t_dict  *env_aux, char *key, char *value)
 {   
     t_dict *new_env = create_env();
@@ -51,7 +50,6 @@ static  t_dict  *dup_envp(char *environ[])
     while (environ[index])
     {
         dict_split = ft_split(environ[index], '=');
-        //printf("CHAVE DEL OCHO: %s - KIKO: %s \n", dict_split[0], dict_split[1]);
         env_aux = add_env(env_aux, dict_split[0], dict_split[1]);
         dict_split = NULL;
         index++;
