@@ -18,6 +18,7 @@ static t_dict  *create_env(void)
 }
 
 /*Adicionando as keys e values no nó*/
+/*Algo de errado nesta função*/
 static t_dict   *add_env(t_dict  *env_aux, char *key, char *value)
 {   
     t_dict *new_env = create_env();
