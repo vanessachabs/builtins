@@ -56,7 +56,6 @@ static  t_dict  *dup_envp(char *environ[])
         dict_split = NULL;
         index++;
     }
-    printf("SO PARA VER SE SAI A KEY %s\n", env_aux->key);
     return (env_aux);
 }
 
@@ -67,7 +66,7 @@ void    print_list(t_dict *env)
     tmp = env;
     while (tmp)
     {
-        printf("CHAVE DEL OCHO %s  KIKO: %s \n", env->key, env->value);
+        printf("CHAVE DEL OCHO: %s - KIKO: %s \n", tmp->key, tmp->value);
         tmp = tmp->next;
     }
 }
