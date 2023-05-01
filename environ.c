@@ -18,7 +18,7 @@ static t_dict  *create_env(void)
 }
 
 /*Adicionando as keys e values no nó*/
-static void    add_env(t_dict  *env_aux, char *key, char *value)
+static t_dict   *add_env(t_dict  *env_aux, char *key, char *value)
 {   
     t_dict *new_env = create_env();
     new_env->key = key;
@@ -33,6 +33,7 @@ static void    add_env(t_dict  *env_aux, char *key, char *value)
         new_env->next = env_aux;
         env_aux = new_env;
     }
+    return (env_aux);
 }
 
 /*Fazer uma cópia do envp. Lembrando que as variáveis de ambientes
@@ -49,8 +50,8 @@ static  t_dict  *dup_envp(char *environ[])
     while (environ[index])
     {
         dict_split = ft_split(environ[index], '=');
-        printf("CHAVE DEL OCHO: %s - KIKO: %s \n", dict_split[0], dict_split[1]);
-        add_env(env_aux, dict_split[0], dict_split[1]);
+        //printf("CHAVE DEL OCHO: %s - KIKO: %s \n", dict_split[0], dict_split[1]);
+        env_aux = add_env(env_aux, dict_split[0], dict_split[1]);
         dict_split = NULL;
         index++;
     }
@@ -79,7 +80,6 @@ t_info *init_info(char *envp[])
 		write_error();
     info->output = STDOUT_FILENO;
 	info->input = STDIN_FILENO;
-    printf("dentro da init info\n");
     info->env = dup_envp(envp);
     return (info);
 }
