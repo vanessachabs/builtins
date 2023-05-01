@@ -37,7 +37,8 @@ static t_dict   *add_env(t_dict  *env_aux, char *key, char *value)
 }
 
 /*Fazer uma cópia do envp. Lembrando que as variáveis de ambientes
-Tem formato key=value*/
+Tem formato key=value 
+Criar new_env aqui e passar como argumento para add_env*/
 static  t_dict  *dup_envp(char *environ[])
 {
     int     index;
