@@ -7,7 +7,7 @@ static void	write_error(void)
 }
 
 /*Alovando memória para o novo nó*/
-static t_dict  create_env(void)
+static t_dict  *create_env(void)
 {
     t_dict   *dict;
 
@@ -20,7 +20,7 @@ static t_dict  create_env(void)
 /*Adicionando as keys e values no nó*/
 static void    add_env(t_dict  *env_aux, char *key, char *value)
 {   
-    t_dict new_env = create_env();
+    t_dict *new_env = create_env();
     new_env->key = key;
     new_env->value = value;
     if (env_aux == NULL)
@@ -45,13 +45,17 @@ static  t_dict  *dup_envp(char *environ[])
 
     index = 0;
     env_aux = NULL;
+    dict_split = NULL;
     while (environ[index])
     {
         dict_split = ft_split(environ[index], '=');
+        printf("CHAVE DEL OCHO: %s - KIKO: %s \n", dict_split[0], dict_split[1]);
         add_env(env_aux, dict_split[0], dict_split[1]);
+        dict_split = NULL;
         index++;
     }
-    return (env_aux)   
+    printf("SO PARA VER SE SAI A KEY %s\n", env_aux->key);
+    return (env_aux);
 }
 
 void    print_list(t_dict *env)
@@ -75,7 +79,7 @@ t_info *init_info(char *envp[])
 		write_error();
     info->output = STDOUT_FILENO;
 	info->input = STDIN_FILENO;
+    printf("dentro da init info\n");
     info->env = dup_envp(envp);
-    print_list(info->env);
     return (info);
 }

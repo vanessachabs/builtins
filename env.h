@@ -35,5 +35,6 @@ typedef struct  s_info
 
 t_info  *init_info(char *envp[]);
 char	**ft_split(char const *s, char c);
+void    print_list(t_dict *env);
 
 #endif
