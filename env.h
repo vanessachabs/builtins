@@ -29,3 +29,5 @@ typedef struct  s_info
 	int			input;
     t_dict      *env;
 }   t_info;
+
+t_info *init_info(char *envp[]);
