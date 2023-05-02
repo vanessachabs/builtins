@@ -1,3 +1,6 @@
+#ifndef ENV_H
+# define ENV_H
+
 /*biblioteca*/
 #include "env.h"
 #include <stdio.h>
@@ -30,4 +33,8 @@ typedef struct  s_info
     t_dict      *env;
 }   t_info;
 
-t_info *init_info(char *envp[]);
+t_info  *init_info(char *envp[]);
+char	**ft_split(char const *s, char c);
+void    print_list(t_dict *env);
+
+#endif

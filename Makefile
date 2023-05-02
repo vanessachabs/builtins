@@ -1,9 +1,9 @@
-NAME = builtins
+NAME = envir
 
 CC	= cc
 CFLAGS	= -Wall -Wextra -Werror 
 
-SRCS	= main.c environ.c
+SRCS	= main.c environ.c ft_split.c
 OBJECTS	= $(SRCS:.c=.o)
 
 all:	$(NAME)

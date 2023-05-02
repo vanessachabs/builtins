@@ -5,9 +5,9 @@ static void	write_error(void)
     write(2, "Error\n", 6);
     exit(1);
 }
-&& environ[index] != '='
 
-static t_dict  create_env(void)
+/*Alovando memória para o novo nó*/
+static t_dict  *create_env(void)
 {
     t_dict   *dict;
 
@@ -17,37 +17,57 @@ static t_dict  create_env(void)
     return (dict);
 }
 
-void    add_env(t_dict  *env_aux, char *envi)
+/*Adicionando as keys e values no nó*/
+static t_dict   *add_env(t_dict  *env_aux, char *key, char *value)
 {   
-    t_dict new_env = create_env();
+    t_dict *new_env = create_env();
+    new_env->key = key;
+    new_env->value = value;
     if (env_aux == NULL)
     {
         env_aux = new_env;
-        new_env->key = NULL;
-        new_env->value = NULL;
-        new_env->next = NULL;
+        new_env->next = NULL; 
     }
     else
     {
-        new_env->key = get_key();
-        new_env->value = get_value();
-
+        new_env->next = env_aux;
+        env_aux = new_env;
     }
-
+    return (env_aux);
 }
+
+/*Fazer uma cópia do envp. Lembrando que as variáveis de ambientes
+Tem formato key=value 
+Criar new_env aqui e passar como argumento para add_env*/
 static  t_dict  *dup_envp(char *environ[])
 {
     int     index;
+    char    **dict_split;
     t_dict  *env_aux;
 
     index = 0;
     env_aux = NULL;
-    while(environ[index])
+    dict_split = NULL;
+    while (environ[index])
     {
-        add_env(env_aux,environ[index]);
+        dict_split = ft_split(environ[index], '=');
+        env_aux = add_env(env_aux, dict_split[0], dict_split[1]);
+        dict_split = NULL;
+        index++;
     }
-    
+    return (env_aux);
+}
 
+void    print_list(t_dict *env)
+{
+    t_dict  *tmp;
+
+    tmp = env;
+    while (tmp)
+    {
+        printf("CHAVE DEL OCHO: %s - KIKO: %s \n", tmp->key, tmp->value);
+        tmp = tmp->next;
+    }
 }
 
 t_info *init_info(char *envp[])
