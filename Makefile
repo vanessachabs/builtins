@@ -3,7 +3,13 @@ NAME = envir
 CC	= cc
 CFLAGS	= -Wall -Wextra -Werror 
 
-SRCS	= main.c environ.c ft_split.c
+SRCS			=	main.c\
+					printer_func.c\
+					ft_substr.c\
+					data_struct_add.c\
+					data_struct_remove.c\
+					environ.c\
+
 OBJECTS	= $(SRCS:.c=.o)
 
 all:	$(NAME)
