@@ -84,8 +84,8 @@ char	**ft_split(char const *s, char c)
         if(*s && *s != c)
         {
             array[i] = ft_worddup(s, c);
-            if(array[i] == NULL)
-                return(ft_free(array));
+            if (array[i] == NULL)
+                return (ft_free(array));
             i++;
             while (*s && *s != c)
                 s++;

@@ -6,6 +6,7 @@ static void	write_error(void)
     exit(1);
 }
 
+
 /*Alovando memória para o novo nó*/
 static t_dict  *create_env(void)
 {
@@ -55,19 +56,26 @@ static  t_dict  *dup_envp(char *environ[])
         dict_split = NULL;
         index++;
     }
+    env_aux->size = index;
     return (env_aux);
 }
 
-void    print_list(t_dict *env)
+void	print_list(t_dict *env)
 {
-    t_dict  *tmp;
+	t_dict *tmp;
 
-    tmp = env;
-    while (tmp)
-    {
-        printf("CHAVE DEL OCHO: %s - KIKO: %s \n", tmp->key, tmp->value);
-        tmp = tmp->next;
-    }
+	tmp = env;
+	while (tmp)
+	{
+		if (tmp->value)
+		{
+			ft_putstr_fd(tmp->key, 1);
+			ft_putchar_fd('=', 1);
+			ft_putstr_fd(tmp->value, 1);
+			ft_putchar_fd('\n', 1);
+		}
+		tmp = tmp->next;
+	}
 }
 
 t_info *init_info(char *envp[])
