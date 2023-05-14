@@ -6,3 +6,7 @@ A variável `env` é um ponteiro para um array de strings, onde cada elemento do
 O array de strings é terminado com um elemento nulo, ou seja, uma string vazia. Por convenção, o último elemento do array é sempre nulo, indicando o fim da lista de variáveis de ambiente.
 
 A variável `env` é geralmente usada em programas C para acessar ou definir variáveis de ambiente do sistema.
+
+Testando export:
+make
+./envir export student=yourname
