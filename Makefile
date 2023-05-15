@@ -1,5 +1,4 @@
-NAME = envir
-
+NAME =  builtins
 CC	= cc
 CFLAGS	= -Wall -Wextra -Werror 
 

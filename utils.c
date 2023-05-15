@@ -1,21 +1,17 @@
 #include "env.h"
 
-
 int	ft_strcmp(const char *s1, const char *s2)
 {
-	unsigned char	*t1;
-	unsigned char	*t2;
+	int	index;
 
-	t1 = (unsigned char *)s1;
-	t2 = (unsigned char *)s2;
-	while (*t1)
+	index = 0;
+	while (s1[index] && s2[index])
 	{
-		if (*t1 != *t2 || !*t1 || !*t2)
-			return (*t1 - *t2);
-		++t1;
-		++t2;
+		if (s1[index] != s2[index])
+			break;
+		index++;
 	}
-	return (*t1 - *t2);
+	return ((unsigned char) s1[index] - (unsigned char) s2[index]);
 }
 
 char	*ft_strdup(const char *s)

@@ -90,7 +90,6 @@ int	export_builtins(int size, char *str[], t_info *data)
 		print_export(data->env);
 		return (0);
 	}
-   //print_list(data->env);
 	while (i < size)
 	{
         add_export(data->env, str[i]);
