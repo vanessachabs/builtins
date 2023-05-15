@@ -12,4 +12,5 @@ Para rodar execute o seguinte comando `make` Depois execute ```./builtins```
 Use ```makefclean``` para limpar os objetos. Para recompilar utilize ```make re```
 
 Testando export:
+
 `./builtins export student=yourname` ou `./envir export`
