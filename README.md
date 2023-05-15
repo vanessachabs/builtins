@@ -1,5 +1,5 @@
-# get-env
-Estruturando as funções que irão manipular as variáveis de ambientes do programa. Será utilizado o terceiro parâmetro da função main() para conseguir esse feito.
+# builtins
+Como funciona determinados comandos e situações em um terminal BASH. Será estruturada as funções que irão manipular as variáveis de ambientes do programa. Será utilizado o terceiro parâmetro da função main() para conseguir esse feito.
 
 A variável `env` é um ponteiro para um array de strings, onde cada elemento do array é uma string contendo um par de chave-valor, separado pelo caractere '='. Por exemplo, o par de chave-valor "PATH=/usr/local/bin" significa que a variável PATH tem o valor "/usr/local/bin".
 
@@ -7,7 +7,38 @@ O array de strings é terminado com um elemento nulo, ou seja, uma string vazia.
 
 A variável `env` é geralmente usada em programas C para acessar ou definir variáveis de ambiente do sistema.
 
-Testando export:
+## Rodando o código
+Execute o seguinte comando no terminal 
+```bash 
+make
+```
+E depois execute o comando abaixo junto com nome do builtins
+```bash 
+./builtins export
+```
+`Ainda não foi finalizada`
+```bash 
+./builtins unset
+```
+`Ainda não foi finalizada`
+```bash 
+./builtins env
+```
+Para limpar os objetos
+```bash 
+makefclean
+``` 
+Para recompilar utilize 
+```bash
+make re
+```
 
-`make`
-`./envir export student=yourname` ou `./envir export`
+## Testando Builtins
+
+```bash 
+./builtins export student=yourname 
+```
+ou 
+```bash 
+./envir export
+```
