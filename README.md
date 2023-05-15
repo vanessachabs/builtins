@@ -7,10 +7,11 @@ O array de strings é terminado com um elemento nulo, ou seja, uma string vazia.
 
 A variável `env` é geralmente usada em programas C para acessar ou definir variáveis de ambiente do sistema.
 
+## Rodando o código
 Para rodar execute o seguinte comando `make` Depois execute ```./builtins```
 
 Use ```makefclean``` para limpar os objetos. Para recompilar utilize ```make re```
 
-## Running Tests
+## Testando Builtins
 
 `./builtins export student=yourname` or `./envir export`
