@@ -40,5 +40,5 @@ make re
 ```
 ou 
 ```bash 
-./envir export
+./builtins export
 ```
