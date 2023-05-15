@@ -43,7 +43,10 @@ void	free_env(t_dict *env);
 int	    check_export(char *key, char *str);
 void	export_error(char *str);
 int	    export_builtins(int size, char *str[], t_info *data);
+void	print_export(t_dict *env);
+t_dict	*new_env(char *key, char *value, int size);
 
+int	    ft_strcmp(const char *s1, const char *s2);
 char	*ft_strdup(const char *s);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putendl_fd(char *s, int fd);

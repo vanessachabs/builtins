@@ -21,7 +21,7 @@ void	free_env(t_dict *env)
 {
 	t_dict	*node;
 
-	while (env->key)
+	while (env)
 	{
 		node = env->next;
 		free(env->key);

@@ -87,7 +87,7 @@ int	export_builtins(int size, char *str[], t_info *data)
 	i = 2;
 	if (size == 2)
 	{
-		printf("ÉÉÉ");
+		print_export(data->env);
 		return (0);
 	}
    //print_list(data->env);
@@ -95,6 +95,7 @@ int	export_builtins(int size, char *str[], t_info *data)
 	{
         add_export(data->env, str[i]);
         i++;
-    }	
+    }
+	print_list(data->env);
 	return (0);
 }
