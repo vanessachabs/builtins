@@ -8,5 +8,6 @@ O array de strings é terminado com um elemento nulo, ou seja, uma string vazia.
 A variável `env` é geralmente usada em programas C para acessar ou definir variáveis de ambiente do sistema.
 
 Testando export:
+
 `make`
-`./envir export student=yourname`
+`./envir export student=yourname` ou `./envir export`
