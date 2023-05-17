@@ -71,5 +71,5 @@ void	print_export(t_dict *env)
 		ft_putchar_fd('\n', STDOUT_FILENO);
 		node = node->next;
 	}
-	free_env(env_sorted);
+	del_lst(env_sorted);
 }

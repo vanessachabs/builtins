@@ -1,17 +1,5 @@
 #include "env.h"
 
-t_dict	*new_env(char *key, char *value, int size)
-{
-	t_dict	*node;
-
-	node = (t_dict *)malloc(sizeof(t_dict));
-	node->key = ft_strdup(key);
-	node->value = ft_strtrim(value, "'");
-	node->next = NULL;
-	node->size = size;
-	return (node);
-}
-
 t_dict	*compare_key(t_dict *env, char *key)
 {
 	t_dict	*node;

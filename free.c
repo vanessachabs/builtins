@@ -16,18 +16,21 @@ void	free_array(char **tab)
 	tab = NULL;
 }
 
+void	del_one(t_dict *node)
+{
+	free(node->key);
+	free(node->value);
+	free(node);
+}
 
-void	free_env(t_dict *env)
+void	del_lst(t_dict *env)
 {
 	t_dict	*node;
 
 	while (env)
 	{
 		node = env->next;
-		free(env->key);
-		free(env->value);
-		free(env);
+		del_one(env);
 		env = node;
 	}
 }
-

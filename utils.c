@@ -134,13 +134,40 @@ int	check_export(char *key, char *str)
 	int	code;
 
 	i = -1;
-	code = SUCESS_EXPORT;
+	code = SUCESS_BUILTINS;
 	while (key[++i])
 	{
 		if (!ft_isalnum(key[i]) && key[i] != '_')
 		{
 			export_error(str);
-			code = ERROR_EXPORT;
+			code = ERROR_BUILTINS;
+		}
+	}
+	return (code);
+}
+
+void	unset_error(char *str)
+{
+	ft_putstr_fd("minishell: unset: ", STDERR_FILENO);
+	ft_putstr_fd("`", STDERR_FILENO);
+	ft_putstr_fd(str, STDERR_FILENO);
+	ft_putendl_fd("': not a valid identifier", STDERR_FILENO);
+}
+
+
+int	check_unset(char *key)
+{
+	int	i;
+	int	code;
+
+	i = -1;
+	code = SUCESS_BUILTINS;
+	while (key[++i])
+	{
+		if (!ft_isalnum(key[i]) && key[i] != '_')
+		{
+			unset_error(key);
+			code = ERROR_BUILTINS;
 		}
 	}
 	return (code);

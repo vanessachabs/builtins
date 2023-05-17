@@ -2,7 +2,7 @@ NAME =  builtins
 CC	= cc
 CFLAGS	= -Wall -Wextra -Werror 
 
-SRCS	= main.c environ.c ft_split.c print_export.c export.c utils.c free.c
+SRCS	= main.c environ.c ft_split.c print_export.c export.c utils.c free.c unset.c
 OBJECTS	= $(SRCS:.c=.o)
 
 all:	$(NAME)

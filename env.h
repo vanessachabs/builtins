@@ -10,8 +10,8 @@
 #include <string.h>
 #include <errno.h>
 
-# define ERROR_EXPORT -1
-# define SUCESS_EXPORT 1
+# define ERROR_BUILTINS -1
+# define SUCESS_BUILTINS 1
 
 typedef struct s_token
 {
@@ -39,12 +39,16 @@ t_info  *init_info(char *envp[]);
 char	**ft_split(char const *s, char c);
 void    print_list(t_dict *env);
 void	free_array(char **tab);
-void	free_env(t_dict *env);
+void	del_lst(t_dict *env);
+void	del_one(t_dict *node);
 int	    check_export(char *key, char *str);
 void	export_error(char *str);
 int	    export_builtins(int size, char *str[], t_info *data);
 void	print_export(t_dict *env);
 t_dict	*new_env(char *key, char *value, int size);
+int	    check_unset(char *key);
+int	    unset_builtins(int size, char *str[], t_info *data);
+t_dict	*compare_key(t_dict *env, char *key);
 
 int	    ft_strcmp(const char *s1, const char *s2);
 char	*ft_strdup(const char *s);

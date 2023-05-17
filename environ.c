@@ -6,35 +6,31 @@ static void	write_error(void)
     exit(1);
 }
 
-
-/*Alovando memória para o novo nó*/
-static t_dict  *create_env(void)
+t_dict	*new_env(char *key, char *value, int size)
 {
-    t_dict   *dict;
+	t_dict	*node;
 
-    dict = (t_dict *) malloc(sizeof(t_dict));
-	if (dict == NULL)
-        write_error();
-    return (dict);
+	node = (t_dict *)malloc(sizeof(t_dict));
+	node->key = ft_strdup(key);
+	node->value = ft_strtrim(value, "'");
+	node->next = NULL;
+	node->size = size;
+	return (node);
 }
 
-/*Adicionando as keys e values no nó*/
-static t_dict   *add_env(t_dict  *env_aux, char *key, char *value)
-{   
-    t_dict *new_env = create_env();
-    new_env->key = key;
-    new_env->value = value;
-    if (env_aux == NULL)
-    {
-        env_aux = new_env;
-        new_env->next = NULL; 
-    }
-    else
-    {
-        new_env->next = env_aux;
-        env_aux = new_env;
-    }
-    return (env_aux);
+t_dict	*add_env(t_dict *env, char *key, char *value)
+{
+	t_dict	*new;
+
+	new = new_env(key, value, 0);
+	if (env == NULL)
+		env = new;
+	else
+	{
+		new->next = env;
+		env = new;
+	}
+	return (env);
 }
 
 /*Fazer uma cópia do envp. Lembrando que as variáveis de ambientes
