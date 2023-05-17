@@ -14,6 +14,8 @@ int main(int argc, char *argv[], char *envp[]) {
        export_builtins(argc, argv, info);
     else if (ft_strncmp(argv[1], "unset", 5) == 0)
        unset_builtins(argc, argv, info);
+    else if (ft_strncmp(argv[1], "env", 3) == 0)
+        print_list(info->env);
     info->output = -1;
     return (0);
 }
