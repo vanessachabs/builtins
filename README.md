@@ -16,11 +16,9 @@ E depois execute o comando abaixo junto com nome do builtins
 ```bash 
 ./builtins export
 ```
-`Ainda não foi finalizada`
 ```bash 
 ./builtins unset
 ```
-`Ainda não foi finalizada`
 ```bash 
 ./builtins env
 ```
